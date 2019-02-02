@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Microsoft Azure Web Applications</title>
+  <link rel="stylesheet" type="text/css" href="styles.css"
+media="screen">
+</head>
+<body>
+
+<header>
+
+  <hgroup>
+    <h1>Chapter 1</h1>
+    <h1>Microsoft Azure Web Applications</h1>
+  </hgroup>
+
+  <nav>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+  </nav>
+
+</header>
+
+<section>
+
+<article>
+
+
+<h2>Introduction</h2>
+
+<p>Microsoft Azure is Microsoft's cloud computing platform, providing a wide variety of services you can use without purchasing and provisioning your own hardware. Azure enables the rapid development of solutions and provides the resources to accomplish tasks that may not be feasible in an on-premises environment. Azure's compute, storage, network, and application services allow you to focus on building great solutions without the need to worry about how the physical infrastructure is assembled.
+
+This ebook covers the fundamentals of Azure you need to start developing solutions right away. It concentrates on the features of the Azure platform that you are most likely to need to know rather than on every feature and service available on the platform. This ebook also provides several walkthroughs you can follow to learn how to create VMs and virtual networks, websites and storage accounts, and so on. In many cases, real-world tips are included to help you get the most out of your Azure experience.
+
+In addition to its coverage of core Azure services, the ebook discusses common tools useful in creating and managing Azure-based solutions. The ebook wraps up by providing details on a few common business scenarios where Azure can provide compelling and valuable solutions. </p>
+
+<h2>Introduction to azure resource groups</h2>
+
+<p>In Azure, the term resource refers to an entity managed by Azure. For example, virtual machines, virtual networks, and storage accounts are all referred to as Azure resources. Each resource in Azure must belong to a resource group. A resource group is simply a logical construct that groups multiple resources together so they can be managed as a single entity. For example, resources that share a similar lifecycle, such as the resources for an n-tier application may be created or deleted as a group.</p>
+<ol>
+       <li><b>Free</b> The free tier is intended for evaluation purpose; this is why it is free. Web apps in this tier share machine resouces with other web apps from other azure subscribers. Because the resources are shared, you have limited daily compute and network bandwidth limits.</li>
+       <li> <b>Shared</b> The shared tier also shares machine resources with other web apps, but the daily compute and network bandwidth limits are increased. The tier is intended for low-traffic sites and enables support for a few features, such as custom domains and the abilit scale out to multiple shared instances.</li>
+       <li> <b>Basic</b> The basic tier gives you dedicated machine instances to host your web app and, therefore, has no dily resource limits. In this tier, you are able to scale up the size of your dedicated virtual machine to increase the number of cores and RAM. </li>
+       <li> <b>Standard</b> The standard tier has all the features of the basic tier, and it enables alll the features available to Azure web apps.</b> </li>
+       <li> <b>Premium</b> The premium tier provides same set of feature like the standard tier but, with some extra capacity.</li>
+</ol>
+
+<h2>Creating an Azure Web App using the Azure portal</h2>
+
+<p>In Visual Studio, create a project by selecting File > New > Project.<br>
+In the New Project dialog, select Visual C# > Web > ASP.NET Web Application (.NET Framework).<br>
+Name the application myFirstAzureWebApp, and then select OK.</p> 
+
+<figure>
+  <img src="https://docs.microsoft.com/en-us/azure/app-service/media/app-service-web-get-started-windows-container/new-project.png" alt="A screenshot of visual studios">
+  <figcaption>Figure 1.</figcaption>
+</figure>
+
+
+<p>You can deploy any type of ASP.NET web app to Azure. For this quickstart, select the MVC template, and make sure authentication is set to No Authentication.<br>
+
+Select Enable Docker Compose support.<br>
+
+Select OK.</p>  
+
+<figure>
+  <img src="https://docs.microsoft.com/en-us/azure/app-service/media/app-service-web-get-started-windows-container/select-mvc-template.png" alt="A screenshot of visual studios">
+  <figcaption>Figure 2..</figcaption>
+</figure>
+
+<h2> Publish to Docker Hub</h2>
+
+<p>In the Solution Explorer, right-click the myFirstAzureWebApp project and select Publish</p>
+
+<figure>
+  <img src="https://docs.microsoft.com/en-us/azure/app-service/media/app-service-web-get-started-windows-container/solution-explorer-publish.png"alt="A screenshot of visual studios">
+  <figcaption>Figure 2. </figcaption>
+</figure>
+
+<p>The publish wizard is automatically launched. Select Container Registry > Docker Hub > Publish.</p>
+
+<figure>
+  <img src="https://docs.microsoft.com/en-us/azure/app-service/media/app-service-web-get-started-windows-container/publish-to-docker.png"alt="A screenshot of visual studios">
+  <figcaption>Figure 4. </figcaption>
+</figure>
+
+<p>Supply your Docker Hub account credentials and click Save.<br>
+
+Wait for the deployment to complete. The Publish page now shows the repository name that you will use later in App Service.</p>
+<figure>
+  <img src="https://docs.microsoft.com/en-us/azure/app-service/media/app-service-web-get-started-windows-container/published-docker-repository.png"alt="A screenshot of visual studios">
+  <figcaption>Figure 5. </figcaption>
+</figure>
+
+<p>Copy this repository name for later.</p>
+
+<h2>Use different patent images</h2>
+
+<p>You are free to use a different custom Docker image to run your app. However, you must choose the right parent image for the framework you want:</p>
+<ul>
+    <li>To deploy .NET Framework apps, use a parent image based on the Windows Server Core 2016 Long-Term Servicing Channel (LTSC) release.</li>
+    <li>To deploy .NET Core apps, use a parent image based on the Windows Server Nano 2016 Long-Term Servicing Channel (LTSC) release.</li>
+</ul>
+<p>It takes some time to download a parent image during app start-up. However, you can reduce start-up time by using one of the following parent images that are already cached in Azure App Service:</p>
+
+</article>
+</section>
+
+<footer>
+
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+</footer>
+</body>
+</html>
